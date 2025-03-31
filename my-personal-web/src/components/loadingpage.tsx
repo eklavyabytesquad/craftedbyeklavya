@@ -212,34 +212,7 @@ export function CosmicBackground() {
       <Dust particles={dustParticles} />
       
       {/* Glowing cosmic rings */}
-      {Array.from({ length: 3 }).map((_, i) => {
-        const radius = 40 + i * 20;
-        const tubeRadius = 0.05 + Math.random() * 0.1;
-        const color = nebulaColors[Math.floor(Math.random() * nebulaColors.length)].emissive;
-        const rotationSpeed = 0.05 + Math.random() * 0.1;
-        const tubeRef = useRef();
-        
-        useFrame(({ clock }) => {
-          if (tubeRef.current) {
-            const time = clock.getElapsedTime();
-            tubeRef.current.rotation.x = time * rotationSpeed * 0.1;
-            tubeRef.current.rotation.y = time * rotationSpeed * 0.2;
-          }
-        });
-        
-        return (
-          <mesh key={`ring-${i}`} ref={tubeRef} position={[0, 0, -20 - i * 10]}>
-            <torusGeometry args={[radius, tubeRadius, 16, 100]} />
-            <meshStandardMaterial 
-              color={color} 
-              emissive={color}
-              emissiveIntensity={2}
-              transparent
-              opacity={0.6}
-            />
-          </mesh>
-        );
-      })}
+      <CosmicRings nebulaColors={nebulaColors} />
     </group>
   );
 }
@@ -362,11 +335,60 @@ export function TechKeyword({ text, position, rotation, color="#9333EA" }) {
 }
 
 // TechCubes component
+// Cosmic Rings Component
+function CosmicRings({ nebulaColors }) {
+  const rings = useMemo(() => {
+    return Array.from({ length: 3 }).map((_, i) => {
+      return {
+        radius: 40 + i * 20,
+        tubeRadius: 0.05 + Math.random() * 0.1,
+        color: nebulaColors[Math.floor(Math.random() * nebulaColors.length)].emissive,
+        rotationSpeed: 0.05 + Math.random() * 0.1,
+        position: [0, 0, -20 - i * 10]
+      };
+    });
+  }, [nebulaColors]);
+
+  return (
+    <>
+      {rings.map((ring, i) => (
+        <CosmicRing key={`ring-${i}`} ring={ring} />
+      ))}
+    </>
+  );
+}
+
+// Individual Cosmic Ring
+function CosmicRing({ ring }) {
+  const tubeRef = useRef();
+  
+  useFrame(({ clock }) => {
+    if (tubeRef.current) {
+      const time = clock.getElapsedTime();
+      tubeRef.current.rotation.x = time * ring.rotationSpeed * 0.1;
+      tubeRef.current.rotation.y = time * ring.rotationSpeed * 0.2;
+    }
+  });
+  
+  return (
+    <mesh ref={tubeRef} position={ring.position}>
+      <torusGeometry args={[ring.radius, ring.tubeRadius, 16, 100]} />
+      <meshStandardMaterial 
+        color={ring.color} 
+        emissive={ring.color}
+        emissiveIntensity={2}
+        transparent
+        opacity={0.6}
+      />
+    </mesh>
+  );
+}
+
 export function TechCubes() {
   const groupRef = useRef();
   
-  // Expanded list of technologies for more cubes
-  const technologies = [
+  // Expanded list of technologies for more cubes - wrapped in useMemo
+  const technologies = useMemo(() => [
     "React", "Next.js", "TypeScript", "Tailwind", 
     "Node", "Express", "MongoDB", "Supabase", 
     "JavaScript", "CSS", "HTML", "Firebase", 
@@ -374,7 +396,7 @@ export function TechCubes() {
     "React Native", "Redux", "GraphQL", "Vue",
     "Angular", "Svelte", "Three.js", "D3",
     "Figma", "REST API", "WebSockets", "Electron"
-  ];
+  ], []);
   
   const cubes = useMemo(() => {
     // Using useMemo to avoid recalculations on every render
