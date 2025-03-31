@@ -59,7 +59,7 @@ function CameraController() {
 
 // Enhanced Cosmic Background with more elements
 export function CosmicBackground() {
-  const groupRef = useRef();
+  const groupRef = useRef<THREE.Group>(null);
   
   useFrame(({ clock }) => {
     if (groupRef.current) {
@@ -123,7 +123,7 @@ export function CosmicBackground() {
   
   // Animated dust particles
   const Dust = ({ particles }) => {
-    const pointsRef = useRef();
+    const pointsRef = useRef<THREE.Points>(null);
     
     useFrame(({ clock }) => {
       if (pointsRef.current) {
@@ -287,7 +287,7 @@ export function EnhancedCube({ position, rotation, size, technology, cubeRef }) 
 
 // Updated TechKeyword component with faster animation
 export function TechKeyword({ text, position, rotation, color="#9333EA" }) {
-  const meshRef = useRef();
+  const meshRef = useRef<THREE.Group>(null);
   
   // Add a faster and more pronounced floating animation
   useFrame(({ clock }) => {
@@ -360,7 +360,7 @@ function CosmicRings({ nebulaColors }) {
 
 // Individual Cosmic Ring
 function CosmicRing({ ring }) {
-  const tubeRef = useRef();
+  const tubeRef = useRef<THREE.Mesh>(null);
   
   useFrame(({ clock }) => {
     if (tubeRef.current) {
@@ -385,7 +385,7 @@ function CosmicRing({ ring }) {
 }
 
 export function TechCubes() {
-  const groupRef = useRef();
+  const groupRef = useRef<THREE.Group>(null);
   
   // Expanded list of technologies for more cubes - wrapped in useMemo
   const technologies = useMemo(() => [
@@ -436,7 +436,7 @@ export function TechCubes() {
     });
   }, [technologies]);
   
-  const cubeRefs = useRef([]);
+  const cubeRefs = useRef<Array<THREE.Mesh | null>>([]);
   
   useFrame(({ clock }) => {
     // Smoother group rotation with increased speed
@@ -566,7 +566,7 @@ export function TechCubes() {
 
 // Enhanced 3D Button component
 function CoolButton({ onClick }) {
-  const buttonGroupRef = useRef();
+  const buttonGroupRef = useRef<THREE.Group>(null);
   
   useFrame(({ clock }) => {
     if (buttonGroupRef.current) {
