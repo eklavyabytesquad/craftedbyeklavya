@@ -24,12 +24,6 @@ interface NebulaColorData {
   emissive: string;
 }
 
-interface NebulaeData {
-  scale: number;
-  position: [number, number, number];
-  rotation: [number, number, number];
-  colorData: NebulaColorData;
-}
 
 interface RingData {
   radius: number;
@@ -37,16 +31,6 @@ interface RingData {
   color: string;
   rotationSpeed: number;
   position: [number, number, number];
-}
-
-interface CubeData {
-  position: [number, number, number];
-  rotation: [number, number, number];
-  velocity: [number, number, number];
-  angularVelocity: [number, number, number];
-  technology: string;
-  size: number;
-  dampingFactor: number;
 }
 
 // Camera Animation Controller
