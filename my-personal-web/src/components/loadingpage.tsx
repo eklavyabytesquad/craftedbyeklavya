@@ -192,12 +192,10 @@ export function CosmicBackground() {
     return (
       <points ref={pointsRef}>
         <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={particles.length}
-            array={pointPositions}
-            itemSize={3}
-          />
+        <bufferAttribute
+  attach="attributes-position"
+  args={[pointPositions, 3]}
+/>
         </bufferGeometry>
         <pointsMaterial
           size={0.8}
