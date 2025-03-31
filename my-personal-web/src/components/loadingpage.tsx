@@ -12,6 +12,43 @@ import {
 } from '@react-three/drei';
 import * as THREE from 'three';
 
+// Add type definitions for component props
+interface DustParticle {
+  scale: number;
+  position: [number, number, number];
+  speed: number;
+}
+
+interface NebulaColorData {
+  color: string;
+  emissive: string;
+}
+
+interface NebulaeData {
+  scale: number;
+  position: [number, number, number];
+  rotation: [number, number, number];
+  colorData: NebulaColorData;
+}
+
+interface RingData {
+  radius: number;
+  tubeRadius: number;
+  color: string;
+  rotationSpeed: number;
+  position: [number, number, number];
+}
+
+interface CubeData {
+  position: [number, number, number];
+  rotation: [number, number, number];
+  velocity: [number, number, number];
+  angularVelocity: [number, number, number];
+  technology: string;
+  size: number;
+  dampingFactor: number;
+}
+
 // Camera Animation Controller
 function CameraController() {
   const { camera } = useThree();
@@ -122,7 +159,7 @@ export function CosmicBackground() {
   }, []);
   
   // Animated dust particles
-  const Dust = ({ particles }) => {
+  const Dust = ({ particles }: { particles: DustParticle[] }) => {
     const pointsRef = useRef<THREE.Points>(null);
     
     useFrame(({ clock }) => {
@@ -218,7 +255,13 @@ export function CosmicBackground() {
 }
 
 // Improved Tech Cube with better materials and visual appeal
-export function EnhancedCube({ position, rotation, size, technology, cubeRef }) {
+export function EnhancedCube({ position, rotation, size, technology, cubeRef }: {
+  position: [number, number, number];
+  rotation: [number, number, number];
+  size: number;
+  technology: string;
+  cubeRef: (node: THREE.Mesh | null) => void;
+}) {
   // Expanded color palette (purples/blues/teals)
   const colors = [
     "#9333EA", // Main Purple
@@ -286,7 +329,12 @@ export function EnhancedCube({ position, rotation, size, technology, cubeRef }) 
 }
 
 // Updated TechKeyword component with faster animation
-export function TechKeyword({ text, position, rotation, color="#9333EA" }) {
+export function TechKeyword({ text, position, rotation, color = "#9333EA" }: {
+  text: string;
+  position: [number, number, number];
+  rotation: [number, number, number];
+  color?: string;
+}) {
   const meshRef = useRef<THREE.Group>(null);
   
   // Add a faster and more pronounced floating animation
@@ -336,7 +384,7 @@ export function TechKeyword({ text, position, rotation, color="#9333EA" }) {
 
 // TechCubes component
 // Cosmic Rings Component
-function CosmicRings({ nebulaColors }) {
+function CosmicRings({ nebulaColors }: { nebulaColors: NebulaColorData[] }) {
   const rings = useMemo(() => {
     return Array.from({ length: 3 }).map((_, i) => {
       return {
@@ -359,7 +407,7 @@ function CosmicRings({ nebulaColors }) {
 }
 
 // Individual Cosmic Ring
-function CosmicRing({ ring }) {
+function CosmicRing({ ring }: { ring: RingData }) {
   const tubeRef = useRef<THREE.Mesh>(null);
   
   useFrame(({ clock }) => {
@@ -565,7 +613,7 @@ export function TechCubes() {
 }
 
 // Enhanced 3D Button component
-function CoolButton({ onClick }) {
+function CoolButton({ onClick }: { onClick: () => void }) {
   const buttonGroupRef = useRef<THREE.Group>(null);
   
   useFrame(({ clock }) => {
