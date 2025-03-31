@@ -16,35 +16,23 @@ import { AnimatedCube } from '../components/animatedcube';
 // Main component that combines loading and main page
 export default function PortfolioPage() {
   const [loading, setLoading] = useState(true);
-  const [countdown, setCountdown] = useState(5);
   
   useEffect(() => {
-    // Set up countdown timer
-    const countdownInterval = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          clearInterval(countdownInterval);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    
-    // Transition to main page after countdown
+    // Transition to main page after LoadingPage's countdown completes
+    // We'll use a timeout of 6 seconds which should match the LoadingPage's internal countdown
     const timer = setTimeout(() => {
       setLoading(false);
     }, 6000); // 6 seconds for the animation
     
     return () => {
       clearTimeout(timer);
-      clearInterval(countdownInterval);
     };
   }, []);
   
   return (
     <>
       {loading ? (
-        <LoadingPage countdown={countdown} />
+        <LoadingPage />
       ) : (
         <MainPage />
       )}
