@@ -3,12 +3,13 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Edges } from '@react-three/drei';
+import { Mesh, SpotLight } from 'three';
 
 // Improved 3D Cube Component for Main Page
 export function AnimatedCube() {
-  // Initialize refs with null to fix the "Expected 1 arguments, but got 0" error
-  const meshRef = useRef(null);
-  const spotLightRef = useRef(null);
+  // Properly typed refs with the correct Three.js types
+  const meshRef = useRef<Mesh>(null);
+  const spotLightRef = useRef<SpotLight>(null);
   
   useFrame((state) => {
     if (meshRef.current) {
