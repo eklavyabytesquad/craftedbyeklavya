@@ -67,7 +67,7 @@ function MainPage() {
       <section className="h-screen flex flex-col items-center justify-center p-4 md:p-24">
         <div className="text-center mb-8">
           <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-blue-400 mb-4">
-            Hello, I'm a Developer
+            Hello, Im a Developer
           </h1>
           <p className="text-gray-300 text-xl">Explore my interactive portfolio</p>
         </div>

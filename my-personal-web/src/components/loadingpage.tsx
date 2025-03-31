@@ -8,7 +8,6 @@ import {
   Environment, 
   Edges,
   Stars,
-  useAnimations,
   CameraShake
 } from '@react-three/drei';
 import * as THREE from 'three';
@@ -81,7 +80,7 @@ export function CosmicBackground() {
   
   // Generate more nebulae with better distribution
   const nebulae = useMemo(() => {
-    return [...Array(8)].map((_, i) => {
+    return Array.from({ length: 8 }).map(() => {
       const scale = 25 + Math.random() * 40;
       const colorIndex = Math.floor(Math.random() * nebulaColors.length);
       const position = [
@@ -106,7 +105,7 @@ export function CosmicBackground() {
   
   // Cosmic dust particles
   const dustParticles = useMemo(() => {
-    return [...Array(200)].map((_, i) => {
+    return Array.from({ length: 200 }).map(() => {
       const scale = 0.1 + Math.random() * 0.4;
       const position = [
         (Math.random() - 0.5) * 200,
@@ -213,7 +212,7 @@ export function CosmicBackground() {
       <Dust particles={dustParticles} />
       
       {/* Glowing cosmic rings */}
-      {[...Array(3)].map((_, i) => {
+      {Array.from({ length: 3 }).map((_, i) => {
         const radius = 40 + i * 20;
         const tubeRadius = 0.05 + Math.random() * 0.1;
         const color = nebulaColors[Math.floor(Math.random() * nebulaColors.length)].emissive;
@@ -246,7 +245,7 @@ export function CosmicBackground() {
 }
 
 // Improved Tech Cube with better materials and visual appeal
-export function EnhancedCube({ position, rotation, size, technology, velocity, angularVelocity, cubeRef }) {
+export function EnhancedCube({ position, rotation, size, technology, cubeRef }) {
   // Expanded color palette (purples/blues/teals)
   const colors = [
     "#9333EA", // Main Purple
@@ -361,6 +360,8 @@ export function TechKeyword({ text, position, rotation, color="#9333EA" }) {
     </group>
   );
 }
+
+// TechCubes component
 export function TechCubes() {
   const groupRef = useRef();
   
@@ -377,9 +378,9 @@ export function TechCubes() {
   
   const cubes = useMemo(() => {
     // Using useMemo to avoid recalculations on every render
-    return technologies.map((tech, i) => {
+    return technologies.map((tech, index) => {
       // Distribute cubes in a more balanced way in a spherical pattern
-      const phi = Math.acos(-1 + (2 * i) / technologies.length);
+      const phi = Math.acos(-1 + (2 * index) / technologies.length);
       const theta = Math.sqrt(technologies.length * Math.PI) * phi;
       const radius = 12 + Math.random() * 5; // Adjusted radius for more space
       
@@ -411,7 +412,7 @@ export function TechCubes() {
         dampingFactor: 0.995 // Increased for smoother movement with less deceleration
       };
     });
-  }, []);
+  }, [technologies]);
   
   const cubeRefs = useRef([]);
   
@@ -503,8 +504,6 @@ export function TechCubes() {
           rotation={cube.rotation}
           size={cube.size}
           technology={cube.technology}
-          velocity={cube.velocity}
-          angularVelocity={cube.angularVelocity}
         />
       ))}
       
@@ -543,7 +542,7 @@ export function TechCubes() {
   );
 }
 
-// Enhanced 3D Button
+// Enhanced 3D Button component
 function CoolButton({ onClick }) {
   const buttonGroupRef = useRef();
   
@@ -735,7 +734,7 @@ export function LoadingPage() {
         </div>
       )}
       
-      {/* Additional CSS for animations */}
+      {/* Custom animations */}
       <style jsx global>{`
         @keyframes spin-slow {
           0% { transform: rotate(0deg); }
