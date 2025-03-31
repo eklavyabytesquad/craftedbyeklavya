@@ -6,8 +6,9 @@ import { Edges } from '@react-three/drei';
 
 // Improved 3D Cube Component for Main Page
 export function AnimatedCube() {
-  const meshRef = useRef();
-  const spotLightRef = useRef();
+  // Initialize refs with null to fix the "Expected 1 arguments, but got 0" error
+  const meshRef = useRef(null);
+  const spotLightRef = useRef(null);
   
   useFrame((state) => {
     if (meshRef.current) {
@@ -39,7 +40,7 @@ export function AnimatedCube() {
       />
       
       <mesh 
-        ref={meshRef} 
+        ref={meshRef}
         rotation={[0.5, 0.5, 0]}
         castShadow
         receiveShadow
@@ -54,26 +55,26 @@ export function AnimatedCube() {
           envMapIntensity={1.5}
           transmission={0.1}
           reflectivity={1}
-          emissive="#4C0499"
+          emissive="#4C0099"
           emissiveIntensity={0.5}
         />
         {/* Adding visible edges */}
-        <Edges 
-          scale={1.02} 
-          threshold={15} 
-          color="#F0ABFF" 
+        <Edges
+          scale={1.02}
+          threshold={15}
+          color="#F0ABFF"
         />
       </mesh>
       
       {/* Add a subtle platform/ground */}
-      <mesh 
-        position={[0, -4, 0]} 
+      <mesh
+        position={[0, -4, 0]}
         rotation={[-Math.PI / 2, 0, 0]}
         receiveShadow
       >
         <planeGeometry args={[30, 30]} />
-        <meshStandardMaterial 
-          color="#14002A" 
+        <meshStandardMaterial
+          color="#14002A"
           metalness={0.6}
           roughness={0.4}
         />
