@@ -172,7 +172,7 @@ const HorizontalScrollGallery = () => {
         {/* Header with title */}
         <div className="bg-gradient-to-b from-purple-950 via-purple-950 to-transparent pt-20 pb-8">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-amber-300">
-            Gallery Section
+            Digital Assets
           </h2>
           
           {/* Progress Indicator */}
@@ -206,20 +206,25 @@ const HorizontalScrollGallery = () => {
                 {galleryImages.map((image, index) => (
                   <div 
                     key={index} 
-                    className={`flex-none w-80 md:w-96 lg:w-[30rem] group bg-black/0 rounded-2xl overflow-hidden transition-all duration-500 
+                    className={`flex-none w-80 md:w-96 lg:w-[30rem] group bg-black/20 rounded-2xl overflow-hidden transition-all duration-500 
                     ${currentImageIndex === index ? 'scale-105 z-10' : 'scale-95'}`}
                     style={{ opacity: Math.max(0.4, 1 - Math.abs(currentImageIndex - index) * 0.25) }}
                   >
-                    {/* Image Container with Border */}
-                    <div className="relative h-80 md:h-96 lg:h-[27rem] overflow-hidden border-4 border-purple-600/40 rounded-xl shadow-lg shadow-purple-900/40">
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover"
-                        priority={index < 3}
-                      />
+                    {/* Image Container with improved aspect ratio handling */}
+                    <div className="relative w-full aspect-[3/4] overflow-hidden border-4 border-purple-600/40 rounded-xl shadow-lg shadow-purple-900/40">
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+                        {/* Image wrapper with object-fit handling */}
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="object-cover object-center"
+                            priority={index < 3}
+                          />
+                        </div>
+                      </div>
                       
                       {/* Overlay for active image */}
                       <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500
@@ -252,7 +257,7 @@ const HorizontalScrollGallery = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-amber-300 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
-              Scroll to explore the gallery
+              Scroll to explore assets
             </p>
           </div>
         </div>
