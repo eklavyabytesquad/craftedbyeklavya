@@ -148,12 +148,12 @@ export default function Home() {
                   className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-amber-400 text-3d"
                   style={getTextShadow()}
                 >
-                  Your Honor, Eklavya Singh
+                  Welcome to Eklavya Singh Website
                 </span>
               </h1>
               
               <h2 className="text-2xl md:text-3xl mb-6 text-gray-300 mt-8">
-                Full Stack Developer & 3D Enthusiast
+                Full Stack Developer & App Developer
               </h2>
               
               <p className="text-lg md:text-xl mb-8 text-gray-300">
