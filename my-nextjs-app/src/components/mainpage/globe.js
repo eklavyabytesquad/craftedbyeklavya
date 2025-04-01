@@ -17,7 +17,7 @@ const TechSkillsGlobeSection = () => {
         <div className="backdrop-blur-lg bg-purple-900/20 p-4 md:p-8 rounded-xl border border-purple-500/30 shadow-2xl">
           <div className="text-center mb-8">
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Explore my technical skills in this interactive visualization. Each node represents a technology I'm proficient in.
+              Explore my technical skills in this interactive visualization. Each node represents a technology Im proficient in.
             </p>
           </div>
           
