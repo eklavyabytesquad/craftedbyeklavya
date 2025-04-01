@@ -59,6 +59,7 @@ const TechSkillsGlobe = () => {
     { name: 'Firebase', icon: firebaseIcon.src, color: '#FFCA28' },
   ];
 
+
   useEffect(() => {
     // Initialize the scene
     const initThree = () => {
@@ -202,6 +203,8 @@ const TechSkillsGlobe = () => {
           loader.load(skill.icon, 
             // Success callback
             (texture) => {
+              console.log(`Successfully loaded texture for ${skill.name}`);
+              
               const iconMaterial = new THREE.MeshBasicMaterial({
                 map: texture,
                 transparent: true,

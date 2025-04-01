@@ -300,10 +300,6 @@ export default function Home() {
             </form>
           </div>
         </section>
-
-
-         {/* ADD THE NEW TECH SKILLS GLOBE SECTION HERE */}
-         <TechSkillsGlobeSection />
       </main>
       
       {/* Footer */}
