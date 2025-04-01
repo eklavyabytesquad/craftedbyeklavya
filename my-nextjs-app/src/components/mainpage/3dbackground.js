@@ -577,7 +577,6 @@ export default function Background3D() {
     };
     
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchmove', handleTouchMove);
     
     // Check size periodically to account for dynamic content loading
     const resizeInterval = setInterval(handleResize, 2000);
@@ -618,11 +617,13 @@ export default function Background3D() {
   return (
     <div 
       ref={mountRef} 
-      className="fixed top-0 left-0 w-full h-full"
+      className="fixed top-0 left-0 w-full h-full z-0"
       style={{
         minHeight: '100vh',
         height: '100%',
-        pointerEvents: 'none' // Allow clicks to pass through to underlying elements
+        pointerEvents: 'none',
+        touchAction: 'none', // This prevents the element from handling touch actions
+        userSelect: 'none'// Prevent text selection // Allow clicks to pass through to underlying elements
       }}
     />
   );
