@@ -5,6 +5,7 @@ import Navbar from '../components/mainpage/navbar';
 import Background3D from '../components/mainpage/3dbackground';
 import TechSkillsGlobeSection from '../components/mainpage/globe';
 import VSCodeEditor from '../components/mainpage/vscodeui';
+import HorizontalImageGallery from '../components/mainpage/horizontalimg';
 
 export default function Home() {
   // State for interactive effects
@@ -225,6 +226,9 @@ export default function Home() {
         <section id="code-card" className="py-20 mt-12">
           <VSCodeEditor codeContent={codeContent} />
         </section>
+
+        {/* Horizontal Image Gallery - ADD THIS SECTION */}
+<HorizontalImageGallery />
 
         {/* Tech Skills Globe Section - Added ref for scroll target */}
         <section ref={skillsSectionRef} id="skills" className="py-20">
