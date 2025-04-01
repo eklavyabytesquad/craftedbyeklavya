@@ -622,7 +622,6 @@ export default function Background3D() {
         minHeight: '100vh',
         height: '100%',
         pointerEvents: 'none',
-        touchAction: 'none', // This prevents the element from handling touch actions
         userSelect: 'none'// Prevent text selection // Allow clicks to pass through to underlying elements
       }}
     />
