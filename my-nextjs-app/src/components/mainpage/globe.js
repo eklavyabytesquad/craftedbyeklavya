@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import TechSkillsGlobe from './techskills';
+import TechSkillsGlobe from './techskills';  // Make sure the import path is correct
 
 const TechSkillsGlobeSection = () => {
   return (
-    <section id="tech-globe" className="py-20">
-      <div className="max-w-6xl mx-auto">
+    <section id="tech-globe" className="py-20 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-12 text-center">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
             My Technical Universe
@@ -14,15 +14,15 @@ const TechSkillsGlobeSection = () => {
         </h2>
         
         {/* Glassmorphism card containing the 3D globe */}
-        <div className="backdrop-blur-lg bg-purple-900/20 p-8 rounded-xl border border-purple-500/30 shadow-2xl">
+        <div className="backdrop-blur-lg bg-purple-900/20 p-4 md:p-8 rounded-xl border border-purple-500/30 shadow-2xl">
           <div className="text-center mb-8">
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Explore my technical skills in this interactive visualization. Each node represents a technology Im proficient in.
+              Explore my technical skills in this interactive visualization. Each node represents a technology I'm proficient in.
             </p>
           </div>
           
-          {/* The 3D globe component */}
-          <div className="h-[500px] md:h-[600px] w-full relative">
+          {/* The 3D globe component - Fixed height container */}
+          <div className="h-[400px] md:h-[500px] lg:h-[600px] w-full relative">
             <TechSkillsGlobe />
           </div>
           

@@ -28,7 +28,6 @@ const TechSkillsGlobe = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [hoverSkill, setHoverSkill] = useState(null);
   const globe = useRef(null);
-  const mixer = useRef(null);
   const clock = useRef(new THREE.Clock());
   const renderer = useRef(null);
   const scene = useRef(null);
@@ -37,6 +36,7 @@ const TechSkillsGlobe = () => {
   const nodeObjects = useRef([]);
   const raycaster = useRef(new THREE.Raycaster());
   const mouse = useRef(new THREE.Vector2());
+  const glowMesh = useRef(null);
 
   // Define your skills with their associated icon paths
   const skills = [
@@ -59,11 +59,11 @@ const TechSkillsGlobe = () => {
     { name: 'Firebase', icon: firebaseIcon.src, color: '#FFCA28' },
   ];
 
-
   useEffect(() => {
+    let mounted = true;
     // Initialize the scene
     const initThree = () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || !mounted) return;
 
       // Get container dimensions
       const width = containerRef.current.clientWidth;
@@ -100,7 +100,9 @@ const TechSkillsGlobe = () => {
       });
       renderer.current.setSize(width, height);
       renderer.current.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
-      containerRef.current.appendChild(renderer.current.domElement);
+      if (containerRef.current.childElementCount === 0) {
+        containerRef.current.appendChild(renderer.current.domElement);
+      }
 
       // Add orbit controls
       controls.current = new OrbitControls(camera.current, renderer.current.domElement);
@@ -112,20 +114,10 @@ const TechSkillsGlobe = () => {
       controls.current.minDistance = 5;
       controls.current.maxDistance = 15; // Increased max distance for better mobile viewing
       
-      // Set initial rotation for better viewing on load
-      controls.current.rotateSpeed = window.innerWidth <= 768 ? 0.7 : 0.5; // Faster rotation on mobile
-      
-      // Create the globe
+      // Create the globe and other elements
       createGlobe();
-      
-      // Add nodes representing skills
       createSkillNodes();
-      
-      // Add connections between nodes
       createConnections();
-      
-      // Add window resize handler
-      window.addEventListener('resize', handleResize);
       
       // Start animation loop
       animate();
@@ -157,8 +149,8 @@ const TechSkillsGlobe = () => {
         side: THREE.BackSide
       });
       
-      const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
-      scene.current.add(glowMesh);
+      glowMesh.current = new THREE.Mesh(glowGeometry, glowMaterial);
+      scene.current.add(glowMesh.current);
     };
 
     const createSkillNodes = () => {
@@ -203,7 +195,7 @@ const TechSkillsGlobe = () => {
           loader.load(skill.icon, 
             // Success callback
             (texture) => {
-              console.log(`Successfully loaded texture for ${skill.name}`);
+              if (!mounted) return;
               
               const iconMaterial = new THREE.MeshBasicMaterial({
                 map: texture,
@@ -226,7 +218,7 @@ const TechSkillsGlobe = () => {
             undefined,
             // Error callback
             (error) => {
-              console.error(`Error loading texture for ${skill.name}:`, error);
+              if (!mounted) return;
               createFallbackIcon(skill, iconGeometry, x, y, z);
             }
           );
@@ -239,6 +231,8 @@ const TechSkillsGlobe = () => {
     
     // Helper function to create fallback icons
     const createFallbackIcon = (skill, iconGeometry, x, y, z) => {
+      if (!mounted) return;
+      
       const iconMaterial = new THREE.MeshBasicMaterial({
         color: new THREE.Color(skill.color || 0xffffff),
         transparent: true,
@@ -294,7 +288,7 @@ const TechSkillsGlobe = () => {
     };
 
     const handleResize = () => {
-      if (!containerRef.current || !camera.current || !renderer.current) return;
+      if (!containerRef.current || !camera.current || !renderer.current || !mounted) return;
       
       const width = containerRef.current.clientWidth;
       const height = containerRef.current.clientHeight;
@@ -311,7 +305,7 @@ const TechSkillsGlobe = () => {
     };
 
     const handleMouseMove = (event) => {
-      if (!containerRef.current || !camera.current) return;
+      if (!containerRef.current || !camera.current || !mounted) return;
       
       // Calculate mouse position in normalized device coordinates
       const rect = containerRef.current.getBoundingClientRect();
@@ -321,19 +315,18 @@ const TechSkillsGlobe = () => {
     
     // Handle touch events for mobile
     const handleTouchMove = (event) => {
-      if (!containerRef.current || !camera.current || !event.touches[0]) return;
+      if (!containerRef.current || !camera.current || !event.touches[0] || !mounted) return;
       
       const touch = event.touches[0];
       const rect = containerRef.current.getBoundingClientRect();
       mouse.current.x = ((touch.clientX - rect.left) / containerRef.current.clientWidth) * 2 - 1;
       mouse.current.y = -((touch.clientY - rect.top) / containerRef.current.clientHeight) * 2 + 1;
       
-      // Prevent page scrolling when interacting with the globe
-      event.preventDefault();
+      // Don't prevent default here to allow scrolling
     };
 
     const checkIntersection = () => {
-      if (!camera.current || nodeObjects.current.length === 0) return;
+      if (!camera.current || nodeObjects.current.length === 0 || !mounted) return;
       
       // Update the picking ray with the camera and mouse position
       raycaster.current.setFromCamera(mouse.current, camera.current);
@@ -354,7 +347,9 @@ const TechSkillsGlobe = () => {
     };
 
     const animate = () => {
-      requestAnimationFrame(animate);
+      if (!mounted) return;
+      
+      const animationId = requestAnimationFrame(animate);
       
       if (controls.current) {
         controls.current.update();
@@ -371,29 +366,41 @@ const TechSkillsGlobe = () => {
       if (renderer.current && scene.current && camera.current) {
         renderer.current.render(scene.current, camera.current);
       }
+      
+      return () => {
+        cancelAnimationFrame(animationId);
+      };
     };
 
     // Initialize
     initThree();
     
-    // Add mouse and touch event listeners
+    // Add event listeners
+    window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true }); // Make it passive to allow scrolling
     
     // Clean up
     return () => {
+      mounted = false;
+      
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
       
-      if (containerRef.current && renderer.current) {
-        containerRef.current.removeChild(renderer.current.domElement);
+      // Clean up Three.js resources
+      if (renderer.current && renderer.current.domElement && containerRef.current) {
+        if (containerRef.current.contains(renderer.current.domElement)) {
+          containerRef.current.removeChild(renderer.current.domElement);
+        }
       }
       
-      // Dispose of materials, geometries, etc
+      // Dispose of all Three.js objects
       if (scene.current) {
         scene.current.traverse((object) => {
-          if (object.geometry) object.geometry.dispose();
+          if (object.geometry) {
+            object.geometry.dispose();
+          }
           
           if (object.material) {
             if (Array.isArray(object.material)) {
@@ -404,20 +411,25 @@ const TechSkillsGlobe = () => {
           }
         });
       }
+      
+      if (renderer.current) {
+        renderer.current.dispose();
+      }
     };
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[450px] md:min-h-[600px] lg:min-h-[700px]">
+    <div className="relative w-full h-full">
       {/* Globe container */}
       <div 
         ref={containerRef} 
-        className="w-full h-full min-h-[450px] md:min-h-[600px] lg:min-h-[700px]"
+        className="w-full h-full"
+        style={{ touchAction: 'pan-y' }} // Allow vertical scrolling
       ></div>
       
       {/* Skill tooltip - improved visibility */}
       {isHovering && hoverSkill && (
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-purple-900/90 backdrop-blur-md px-6 py-3 rounded-lg border border-purple-500/80 shadow-lg shadow-purple-500/30 z-10 text-center">
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-purple-900/90 backdrop-blur-md px-6 py-3 rounded-lg border border-purple-500/80 shadow-lg z-10 text-center">
           <span className="text-white font-bold text-lg">{hoverSkill}</span>
         </div>
       )}

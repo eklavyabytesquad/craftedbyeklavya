@@ -300,6 +300,8 @@ export default function Home() {
             </form>
           </div>
         </section>
+
+        < TechSkillsGlobeSection />
       </main>
       
       {/* Footer */}
