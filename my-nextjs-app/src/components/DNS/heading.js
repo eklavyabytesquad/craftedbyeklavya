@@ -36,7 +36,8 @@ export default function DNSHeading() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center py-8 md:py-16 lg:py-24 min-h-[70vh] bg-gradient-to-b from-[#0a0e29] to-[#101635]">
+    // Removed the background gradient from this div
+    <div className="w-full flex flex-col items-center justify-center py-8 md:py-16 lg:py-24 min-h-[70vh]">
       {/* Main title with 3D effect - Enhanced mobile responsiveness */}
       <div 
         className={`transform transition-all duration-1000 ease-out ${
