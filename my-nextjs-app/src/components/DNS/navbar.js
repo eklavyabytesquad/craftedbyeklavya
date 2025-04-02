@@ -40,7 +40,7 @@ export default function Navbar() {
           <div className="flex-shrink-0 relative group">
             <Link href="/" className="text-white font-bold text-2xl">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-amber-400 relative z-10">
-                Eklavya Singh
+                DNS - Developer Network Space
               </span>
               <span className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-pink-500/20 to-amber-400/20 blur-lg filter opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></span>
             </Link>
@@ -49,7 +49,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-1">
-              {['Home', 'DNS', 'Projects', 'Skills', 'Contact'].map((item, index) => (
+              {['Home', 'DNS','Super 30', 'Contact'].map((item, index) => (
                 <Link 
                   key={index}
                   href={item === 'Home' ? '/' : `${item.toLowerCase()}`}
@@ -61,13 +61,7 @@ export default function Navbar() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-amber-400 group-hover:w-full transition-all duration-500 ease-in-out"></span>
                 </Link>
               ))}
-              <Link 
-                href="/resume" 
-                className="relative overflow-hidden bg-gradient-to-r from-purple-500/80 to-amber-500/80 text-white px-5 py-2 rounded-lg text-sm font-medium hover:from-purple-600/90 hover:to-amber-600/90 transition-all duration-500 group"
-              >
-                <span className="relative z-10">Resume</span>
-                <span className="absolute inset-0 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 bg-gradient-to-r from-amber-500/80 to-purple-500/80"></span>
-              </Link>
+
             </div>
           </div>
 
@@ -107,7 +101,7 @@ export default function Navbar() {
         }`}
       >
         <div className="px-2 pt-2 pb-4 space-y-2 backdrop-blur-xl bg-gradient-to-b from-purple-900/70 to-purple-950/70 border-b border-purple-500/30 border-t border-t-purple-500/30">
-          {['Home', 'DNS', 'Projects', 'Skills', 'Contact'].map((item, index) => (
+          {['Home', 'DNS','Super 30', 'Contact'].map((item, index) => (
             <Link 
               key={index}
               href={item === 'Home' ? '/' : `${item.toLowerCase()}`}
@@ -120,13 +114,6 @@ export default function Navbar() {
               </div>
             </Link>
           ))}
-          <Link 
-            href="/resume" 
-            onClick={toggleMenu}
-            className="block transition-all duration-300 mt-2 mx-2 bg-gradient-to-r from-purple-500/80 to-amber-500/80 hover:from-purple-600/90 hover:to-amber-600/90 text-white px-4 py-3 rounded-lg text-base font-medium hover:scale-105 transform"
-          >
-            Resume
-          </Link>
           
           {/* Decorative elements */}
           <div className="absolute right-0 bottom-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl"></div>
