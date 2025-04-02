@@ -151,7 +151,7 @@ export default function JoinUs() {
                 </h3>
                 <p className="text-blue-100 mb-4">Stay updated with our latest events, projects, and opportunities by joining our WhatsApp group for interested students.</p>
                 <a 
-                  href="https://chat.whatsapp.com/JVEUgCGHqvtEGiizlOqSrQ" 
+                  href="https://chat.whatsapp.com/EmM4WIkQorZ9oHnA4EIccF" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium"
