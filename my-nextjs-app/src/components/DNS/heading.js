@@ -36,7 +36,7 @@ export default function DNSHeading() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center justify-center py-8 md:py-16 lg:py-24 min-h-[70vh]">
+    <div className="w-full flex flex-col items-center justify-center py-8 md:py-16 lg:py-24 min-h-[70vh] bg-gradient-to-b from-[#0a0e29] to-[#101635]">
       {/* Main title with 3D effect - Enhanced mobile responsiveness */}
       <div 
         className={`transform transition-all duration-1000 ease-out ${
@@ -48,16 +48,16 @@ export default function DNSHeading() {
           style={{
             textShadow: `
               0 0 1px rgba(255,255,255,0.8),
-              2px 2px 2px rgba(149, 76, 233, 0.6),
-              -2px -2px 2px rgba(212, 175, 55, 0.4),
-              0 0 20px rgba(186, 104, 200, 0.5),
-              0 0 40px rgba(186, 104, 200, 0.3)
+              2px 2px 2px rgba(77, 171, 247, 0.6),
+              -2px -2px 2px rgba(180, 230, 255, 0.4),
+              0 0 20px rgba(100, 180, 255, 0.5),
+              0 0 40px rgba(100, 180, 255, 0.3)
             `,
             perspective: '1000px',
             transformStyle: 'preserve-3d',
           }}
         >
-          <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-purple-400 transform hover:scale-105 transition-transform duration-300"
+          <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-100 to-[#4dabf7] transform hover:scale-105 transition-transform duration-300"
             style={{
               transform: hover ? 'translateZ(10px)' : 'translateZ(0)',
               transition: 'transform 0.3s ease-out',
@@ -68,7 +68,7 @@ export default function DNSHeading() {
             Developer
           </span>
           <br className="sm:hidden" /> {/* Line break on smallest screens */}
-          <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white transform hover:scale-105 transition-transform duration-300 mt-2 sm:mt-0 sm:ml-3"
+          <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#4dabf7] to-white transform hover:scale-105 transition-transform duration-300 mt-2 sm:mt-0 sm:ml-3"
             style={{
               transform: hover ? 'translateZ(10px)' : 'translateZ(0)',
               transition: 'transform 0.3s ease-out',
@@ -80,7 +80,7 @@ export default function DNSHeading() {
             Network
           </span>
           <br className="sm:hidden" /> {/* Line break on smallest screens */}
-          <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-amber-300 transform hover:scale-105 transition-transform duration-300 mt-2 sm:mt-0 sm:ml-3"
+          <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-[#a5d8ff] transform hover:scale-105 transition-transform duration-300 mt-2 sm:mt-0 sm:ml-3"
             style={{
               transform: hover ? 'translateZ(10px)' : 'translateZ(0)',
               transition: 'transform 0.3s ease-out',
@@ -100,20 +100,20 @@ export default function DNSHeading() {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}
       >
-        <p className="text-base md:text-lg lg:text-xl text-purple-200 mb-3 italic tracking-wide px-4 md:px-0">
+        <p className="text-base md:text-lg lg:text-xl text-blue-200 mb-3 italic tracking-wide px-4 md:px-0">
           Connect · Collaborate · Create
         </p>
         
         {/* Exclusive Club Line */}
         <div className="relative my-4 mb-14">
           <div className="flex items-center justify-center">
-            <div className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-amber-300/70"></div>
+            <div className="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-[#4dabf7]/70"></div>
             <p className="text-sm md:text-base font-light text-white mx-3 px-2 tracking-widest uppercase">
               An Exclusive Club For Developers
             </p>
-            <div className="h-px w-16 md:w-24 bg-gradient-to-r from-amber-300/70 to-transparent"></div>
+            <div className="h-px w-16 md:w-24 bg-gradient-to-r from-[#4dabf7]/70 to-transparent"></div>
           </div>
-          <div className="absolute -inset-1 blur-sm bg-gradient-to-r from-transparent via-purple-500/20 to-transparent -z-10"></div>
+          <div className="absolute -inset-1 blur-sm bg-gradient-to-r from-transparent via-blue-500/20 to-transparent -z-10"></div>
         </div>
       </div>
 
@@ -127,17 +127,17 @@ export default function DNSHeading() {
         {/* Animated Scroll Icon */}
         <div className="flex flex-col items-center">
           {/* Text */}
-          <p className="text-xs md:text-sm text-purple-300 tracking-widest uppercase mb-2 md:mb-3 pulse-text">
+          <p className="text-xs md:text-sm text-blue-300 tracking-widest uppercase mb-2 md:mb-3 pulse-text">
             Explore
           </p>
           
           {/* Futuristic Arrow Container */}
           <div className="relative w-8 h-12 md:w-10 md:h-14">
             {/* Outer hexagon frame */}
-            <div className="absolute inset-0 border-2 border-purple-400 rounded-full opacity-80"></div>
+            <div className="absolute inset-0 border-2 border-[#4dabf7] rounded-full opacity-80"></div>
             
             {/* Animated Light Effect */}
-            <div className="absolute inset-0 rounded-full opacity-40 animate-pulse-slow bg-gradient-to-b from-transparent via-amber-300 to-transparent"></div>
+            <div className="absolute inset-0 rounded-full opacity-40 animate-pulse-slow bg-gradient-to-b from-transparent via-[#a5d8ff] to-transparent"></div>
             
             {/* Arrow Animation */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -150,7 +150,7 @@ export default function DNSHeading() {
             
             {/* Arrow Down */}
             <svg 
-              className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-4 md:w-5 md:h-5 text-amber-300 animate-pulse"
+              className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-4 md:w-5 md:h-5 text-[#a5d8ff] animate-pulse"
               xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 24 24" 
               fill="none" 
@@ -166,7 +166,7 @@ export default function DNSHeading() {
         </div>
 
         {/* Radial glow effect */}
-        <div className="absolute -inset-4 bg-gradient-radial from-purple-500/20 to-transparent rounded-full blur-md -z-10"></div>
+        <div className="absolute -inset-4 bg-gradient-radial from-blue-500/20 to-transparent rounded-full blur-md -z-10"></div>
       </div>
 
       {/* Add CSS for custom animations */}
