@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Leadership() {
   const leadership = [
@@ -8,12 +9,12 @@ export default function Leadership() {
       members: [
         {
           name: "Dr. C.V. Jayakumar",
-          position: "Dean, Faculty of Engineering and Technology",
+          position: "Dean Faculty of Engineering and Technology",
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/deansir.jpg",
         },
         {
           name: "Dr. Prasanna Devi",
-          position: "Head of Department, CSE",
+          position: "Head of Department CSE",
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/prassanamam.jpg",
         }
       ]
@@ -138,18 +139,20 @@ export default function Leadership() {
                       key={memberIndex} 
                       className="bg-blue-900/90 backdrop-blur-md p-6 rounded-xl border border-blue-500/50 shadow-lg hover:shadow-blue-300/20 transition-all text-center max-w-sm w-full mb-8 last:mb-0 hover:translate-y-[-5px] duration-300"
                     >
-                      <div className="mb-4 mx-auto w-40 h-40 rounded-full overflow-hidden border-4 border-white/30 shadow-inner">
-                        <img 
+                      <div className="mb-4 mx-auto w-40 h-40 rounded-full overflow-hidden border-4 border-white/30 shadow-inner relative">
+                        <Image 
                           src={member.image} 
                           alt={member.name} 
-                          className="w-full h-full object-cover"
+                          fill
+                          style={{objectFit: 'cover'}}
+                          sizes="(max-width: 768px) 100vw, 160px"
                         />
                       </div>
                       <h4 className="text-xl font-semibold mb-1 text-white">{member.name}</h4>
                       <p className="text-blue-200 font-medium">{member.position}</p>
                       {/* Code-like decorations */}
                       <div className="mt-4 font-mono text-xs text-blue-300 opacity-70">
-                        <div>&#123; role: "{member.position}" &#125;</div>
+                        <div>&#123; role: &quot;{member.position}&quot; &#125;</div>
                       </div>
                     </div>
                   ))}
@@ -161,12 +164,11 @@ export default function Leadership() {
 
         <div className="mt-16 text-center p-6 bg-blue-800/50 backdrop-blur-sm rounded-xl border border-blue-500/30">
           <h3 className="text-2xl font-mono font-semibold mb-4 text-white flex items-center justify-center">
-            <span className="text-blue-300 mr-2">// </span>
+            <span className="text-blue-300 mr-2">{"//"}</span>
             Acknowledgements
           </h3>
           <p className="text-lg text-blue-100">🙏 A heartfelt thank you to Dr. Prasanna Devi (HOD, CSE), Dr. C.V. Jayakumar (Dean, FET), and SRM Management for their unwavering support.</p>  
-<p className="text-lg text-blue-100 mt-2">🌟 Special gratitude to Dr. Sridevi Sridhar for her invaluable guidance.</p>
-
+          <p className="text-lg text-blue-100 mt-2">🌟 Special gratitude to Dr. Sridevi Sridhar for her invaluable guidance.</p>
         </div>
       </div>
 

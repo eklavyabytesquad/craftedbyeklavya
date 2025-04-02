@@ -111,7 +111,7 @@ export default function JoinUs() {
             
             <div className="relative z-10">
               <p className="text-xl md:text-2xl mb-6 text-blue-100 font-medium">
-                📢 Join DNS if you're serious about taking your coding skills to the next level!
+                📢 Join DNS if youre serious about taking your coding skills to the next level!
               </p>
               
               <div className="relative inline-block">
