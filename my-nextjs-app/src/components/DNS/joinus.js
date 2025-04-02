@@ -187,7 +187,7 @@ export default function JoinUs() {
                 <p className="text-blue-100 mb-4">Follow us on social media to see our projects, events, and connect with our community.</p>
                 <div className="space-y-3">
                   {[
-                    { name: '🌍 Website', url: 'https://rb.gy/7oy69k' },
+                    { name: '🌍 Website', url: 'https://theeklavyasingh.com/dns' },
                     { name: '📸 Instagram', url: 'https://www.instagram.com/dnssrm' },
                     { name: '💼 LinkedIn', url: 'https://www.linkedin.com/company/dns-developer-network-space-srm-vdp/' }
                   ].map((link, index) => (
