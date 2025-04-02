@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logotransparent from "./assets/dnstransparent.png";
-import dnstext from "./assets/dnsname.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,14 +42,18 @@ export default function Navbar() {
             <Link href="/" className="flex items-center text-white font-bold">
               <div className="relative z-10 h-12 w-auto flex items-center">
                 <Image 
-                  src={logotransparent} 
+                  src="https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/dnstransparent.png" 
                   alt="DNS Logo" 
+                  width={120}
+                  height={40}
                   className="h-full w-auto object-contain transition-all duration-300 group-hover:scale-105"
                   priority
                 />
                 <Image 
-                  src={dnstext} 
+                  src="https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/dnsname.png" 
                   alt="DNS Text" 
+                  width={120}
+                  height={40}
                   className="h-full w-full object-contain ml-2 transition-all duration-300 group-hover:scale-105"
                   priority
                 />
