@@ -227,9 +227,9 @@ const AboutSection = () => {
                       <div className="mb-1"><span className="text-blue-400">function</span> <span className="text-white">initializeSuperBootcamp</span>() {`{`}</div>
                       <div className="pl-4">{`const`} <span className="text-white">students</span> = selectTopTalent(<span className="text-blue-200">30</span>);</div>
                       <div className="pl-4">{`const`} <span className="text-white">curriculum</span> = optimizeForRapidGrowth();</div>
-                      <div className="pl-4">{`const`} <span className="text-white">techStack</span> = [<span className="text-blue-200">'React'</span>, <span className="text-blue-200">'Auth'</span>, <span className="text-blue-200">'Sql'</span>];</div>
+                      <div className="pl-4">{`const`} <span className="text-white">techStack</span> = [<span className="text-blue-200">React</span>, <span className="text-blue-200">Auth</span>, <span className="text-blue-200">Sql</span>];</div>
                       <div className="pl-4">launchProgram(students, curriculum, techStack);</div>
-                      <div className="pl-4">{`return`} <span className="text-blue-200">'job-ready-developers'</span>;</div>
+                      <div className="pl-4">{`return`} <span className="text-blue-200">job-ready-developers</span>;</div>
                       <div>{`}`}</div>
                     </div>
                   </div>

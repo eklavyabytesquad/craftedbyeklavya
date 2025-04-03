@@ -196,7 +196,7 @@ export default function Navbar() {
             {/* Futuristic footer design for mobile menu */}
             <div className="relative border-t border-blue-500/20 mt-2 px-4 py-3 text-xs text-blue-300/70 flex justify-between items-center" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
               <span className="tracking-widest">NAVIGATION.SYSTEM</span>
-              <span className="text-blue-400/70 animate-pulse">//</span>
+              <span className="text-blue-400/70 animate-pulse">{'//'}</span>
               <span className="tabular-nums tracking-wide">v2.5.0</span>
             </div>
           </div>
