@@ -116,7 +116,7 @@ export default function Navbar() {
         }`}
       >
         <div className="px-2 pt-2 pb-4 space-y-2 backdrop-blur-xl bg-gradient-to-b from-blue-900/70 to-purple-950/70 border-b border-blue-500/30 border-t border-t-blue-500/30">
-          {['Home', 'DNS','Super 30', 'Contact'].map((item, index) => (
+          {['Home', 'DNS','Super30', 'Contact'].map((item, index) => (
             <Link 
               key={index}
               href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
