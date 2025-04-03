@@ -100,7 +100,7 @@ const MentorSection = () => {
       </div>
       
       {/* Main Content Container */}
-      <div className="container mx-auto px-4 py-8 relative z-10">
+      <div className="container mx-auto px-4 py-8 relative z-10" id="mentor">
         {/* Hero Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-16">
           {/* Profile Info */}
@@ -132,7 +132,7 @@ const MentorSection = () => {
                   </div>
                 </div>
                 
-                <div className="text-center md:text-left " id="mentor">
+                <div className="text-center md:text-left " >
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white mb-2">
                     Eklavya Singh
                   </h1>
