@@ -76,9 +76,9 @@ const MentorSection = () => {
               <div className="mt-8 bg-purple-800/40 rounded-lg p-5 border border-purple-400/20">
                 <h4 className="text-lg font-semibold text-amber-300 mb-3">A Message from Eklavya</h4>
                 <p className="text-gray-300 italic">
-                  "My goal with Super30 is to bridge the gap between academic learning and real-world development. 
-                  I'm passionate about helping students discover their potential and giving them the practical skills 
-                  to succeed in the tech industry. Join us for an intensive month of coding, creating, and growing together!"
+                  My goal with Super30 is to bridge the gap between academic learning and real-world development. 
+                  I m passionate about helping students discover their potential and giving them the practical skills 
+                  to succeed in the tech industry. Join us for an intensive month of coding creating, and growing together!
                 </p>
               </div>
             </div>

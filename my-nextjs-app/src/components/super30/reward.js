@@ -44,7 +44,7 @@ const RewardsSection = () => {
           </h2>
           
           <p className="text-xl text-center text-gray-300 mb-12 max-w-3xl mx-auto">
-            At Super30, we believe in recognizing and rewarding excellence. Here's what you can earn through your dedication and hard work.
+            At Super30, we believe in recognizing and rewarding excellence. Here what you can earn through your dedication and hard work.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,13 +65,13 @@ const RewardsSection = () => {
               Final Hackathon Event
             </h3>
             <p className="text-gray-200 max-w-3xl mx-auto mb-8">
-              The program culminates in an exciting 36-hour hackathon where you'll form teams and build 
+              The program culminates in an exciting 36-hour hackathon where you will form teams and build 
               innovative solutions to real-world problems. Industry experts will judge your projects, 
               with substantial prizes for the winning teams!
             </p>
             <div className="inline-block bg-gradient-to-r from-purple-500 to-amber-500 p-px rounded-lg">
               <button className="bg-purple-900 text-white font-medium px-8 py-3 rounded-lg hover:bg-purple-800 transition duration-300">
-                View Last Year's Projects
+                View Last Years Projects
               </button>
             </div>
           </div>

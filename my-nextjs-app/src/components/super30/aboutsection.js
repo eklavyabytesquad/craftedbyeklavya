@@ -204,12 +204,12 @@ const AboutSection = () => {
                     <div style={{ fontFamily: 'Rajdhani, sans-serif' }}>
                       <p className="text-blue-50 mb-4 text-lg relative z-10">
                         <span className="font-semibold text-white text-highlight">SUPER30</span> is an elite 4-week immersive tech bootcamp designed for the top 1% of college engineering talent. 
-                        Unlike traditional learning models, we've engineered a high-velocity curriculum that propels students through the entire development ecosystem.
+                        Unlike traditional learning models we have engineered a high-velocity curriculum that propels students through the entire development ecosystem.
                       </p>
                       
                       <p className="text-blue-50 text-lg relative z-10">
                         Our program systematically deconstructs the modern tech stack – from front-end architecture to cloud infrastructure deployment and AI integration. 
-                        We've optimized SUPER30 to provide maximum technical exposure with minimum theoretical overhead.
+                        We have optimized SUPER30 to provide maximum technical exposure with minimum theoretical overhead.
                       </p>
                     </div>
                     
@@ -244,7 +244,7 @@ const AboutSection = () => {
                       METHODOLOGY
                     </h3>
                     <p className="text-blue-50 text-base" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
-                      Rather than sequential lectures, we employ parallel learning tracks with immediate hands-on application. By program completion, you'll possess a comprehensive technical toolkit for today's digital landscape.
+                      Rather than sequential lectures, we employ parallel learning tracks with immediate hands-on application. By program completion, you will possess a comprehensive technical toolkit for today digital landscape.
                     </p>
                   </div>
                   
@@ -296,8 +296,8 @@ const AboutSection = () => {
                   
                   <p className="text-blue-100" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
                     This program is architected for ambitious students seeking exponential skill acceleration. 
-                    You'll master not only core development principles but also cutting-edge AI-augmented workflows using tools like GPT-4 and Copilot.
-                    Within just 4 weeks, you'll gain hands-on expertise with technologies that would require months through conventional learning paths.
+                    You will master not only core development principles but also cutting-edge AI-augmented workflows using tools like GPT-4 and Copilot.
+                    Within just 4 weeks, you will gain hands-on expertise with technologies that would require months through conventional learning paths.
                   </p>
                   
                   {/* Tech stat indicators in a wrap-friendly row */}

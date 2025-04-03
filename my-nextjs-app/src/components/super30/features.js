@@ -166,7 +166,7 @@ const FeaturesSection = () => {
             </div>
             
             <p className="text-lg text-blue-100 max-w-3xl mx-auto font-space-grotesk mt-20">
-              What makes Super30 different from other bootcamps? We've designed every aspect 
+              What makes Super30 different from other bootcamps? We have designed every aspect 
               of the program to maximize your learning and career potential.
             </p>
           </div>
