@@ -1,4 +1,4 @@
-import Navbar from '../../components/mainpage/navbar';
+import Navbar from '../../components/DNS/navbar';
 import Background3D from '../../components/mainpage/3dbackground';
 
 export default function Super30Page() {
