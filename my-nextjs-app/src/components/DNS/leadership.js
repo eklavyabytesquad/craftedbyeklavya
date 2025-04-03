@@ -13,7 +13,7 @@ export default function Leadership() {
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/deansir.jpg",
         },
         {
-          name: "Dr. Prasanna Devi",
+          name: "Dr. S Prasanna Devi",
           position: "Head of Department CSE",
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/prassanamam.jpg",
         }
@@ -43,7 +43,7 @@ export default function Leadership() {
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/aniket.jpg",
         },
         {
-          name: "Netrand Davey",
+          name: "Netrang Davey",
           position: "Founding Member",
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/netrang.jpg",
         }
