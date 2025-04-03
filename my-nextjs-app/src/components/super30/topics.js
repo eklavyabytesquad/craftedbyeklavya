@@ -323,9 +323,14 @@ const CurriculumSection = () => {
                 and get familiar with the Super30 learning approach.
               </p>
               
-              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-blue-400/30">
-                <span className="font-bold">Register Now</span>
-              </button>
+              <a 
+  href="https://forms.gle/RNWkNMwDExR9jgx46" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-blue-400/30 inline-block"
+>
+  <span className="font-bold">Register Now</span>
+</a>
               
               <div className="mt-4 inline-block bg-blue-800/50 px-3 py-1 rounded-md border border-blue-400/20">
                 <span className="text-yellow-300 mr-1">⚠️</span>
