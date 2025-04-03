@@ -132,7 +132,7 @@ const MentorSection = () => {
                   </div>
                 </div>
                 
-                <div className="text-center md:text-left">
+                <div className="text-center md:text-left " id="mentor">
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white mb-2">
                     Eklavya Singh
                   </h1>
