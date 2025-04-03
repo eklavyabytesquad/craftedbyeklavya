@@ -68,7 +68,7 @@ const MentorSection = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white bg-transparent relative overflow-hidden">
+    <div className="min-h-screen text-white bg-transparent relative overflow-hidden" id="mentor">
       {/* Animated background elements */}
       <div className="fixed inset-0 z-0">
         <div className="absolute w-full h-full bg-gradient-to-br from-blue-950/40 via-transparent to-blue-900/40"></div>
@@ -100,7 +100,7 @@ const MentorSection = () => {
       </div>
       
       {/* Main Content Container */}
-      <div className="container mx-auto px-4 py-8 relative z-10" id="mentor">
+      <div className="container mx-auto px-4 py-8 relative z-10" >
         {/* Hero Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-16">
           {/* Profile Info */}
