@@ -271,7 +271,7 @@ const Footer = () => {
                   <div className="mt-4 bg-gradient-to-r from-blue-900/50 to-blue-800/50 rounded-lg p-3 border border-blue-500/20 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/10 rounded-full filter blur-xl opacity-70"></div>
                     <p className="text-blue-100/80 text-sm">
-                      "Coding is not just about building software; it's about solving problems and creating experiences that impact lives."
+                      Coding is not just about building software; it is about solving problems and creating experiences that impact lives.
                     </p>
                     <div className="mt-2 text-right text-blue-300 text-xs font-medium">- Eklavya Singh</div>
                   </div>

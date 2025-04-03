@@ -142,8 +142,8 @@ const CTASection = () => {
                   <div className="text-xs text-blue-300 ml-2 font-mono">super30_info.sh</div>
                 </div>
                 <div className="p-3 font-mono text-sm">
-                  <div className="text-blue-400 mb-1">$ <span className="text-white">echo</span> <span className="text-green-400">"We'll contact you after reviewing your application"</span></div>
-                  <div className="text-blue-200">{">"} Fill the form if interested. We'll call you for payment after confirmation.</div>
+                  <div className="text-blue-400 mb-1">$ <span className="text-white">echo</span> <span className="text-green-400">We will contact you after reviewing your application</span></div>
+                  <div className="text-blue-200">{">"} Fill the form if interested. We will call you for payment after confirmation.</div>
                 </div>
               </div>
             </div>

@@ -285,7 +285,7 @@ const MentorSection = () => {
               </p>
               
               <p className="text-blue-100 mb-4 leading-relaxed relative z-10">
-                His teaching methodology bridges the gap between academic concepts and real-world application, empowering students to become industry-ready professionals. Eklavya's work has been recognized in media outlets, and his projects span from institutional platforms to social impact solutions. With Super30, he aims to transform passionate beginners into confident, skilled developers through intensive, hands-on training.
+                His teaching methodology bridges the gap between academic concepts and real-world application, empowering students to become industry-ready professionals. Eklavyas work has been recognized in media outlets, and his projects span from institutional platforms to social impact solutions. With Super30, he aims to transform passionate beginners into confident, skilled developers through intensive, hands-on training.
               </p>
               
               <div className="mt-6 p-6 rounded-lg bg-gradient-to-br from-blue-800/40 to-blue-900/40 border border-blue-500/30 relative z-10 transform transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-blue-500/10">
@@ -297,12 +297,12 @@ const MentorSection = () => {
                   A Message from Eklavya
                 </h3>
                 <p className="text-blue-100 italic">
-                  "My goal with Super30 is to bridge the gap between academic learning and real-world development. 
-                  I'm passionate about helping students discover their potential and giving them the practical skills 
+                  My goal with Super30 is to bridge the gap between academic learning and real-world development. 
+                  I m passionate about helping students discover their potential and giving them the practical skills 
                   to succeed in the tech industry. Having gone through the journey from a beginner to a professional developer,
                   I understand the challenges and roadblocks that students face. With Super30, I aim to provide not just technical knowledge,
                   but also industry insights, practical experience, and a supportive community that will help you thrive in your tech career.
-                  Join us for an intensive month of coding, creating, and growing together!"
+                  Join us for an intensive month of coding, creating, and growing together!
                 </p>
               </div>
             </div>
