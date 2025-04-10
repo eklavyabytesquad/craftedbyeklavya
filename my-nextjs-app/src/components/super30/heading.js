@@ -116,7 +116,7 @@ const HeaderSection = () => {
           {/* Subtitle with holographic effect */}
           <div className="relative bg-blue-900/30 backdrop-blur-lg rounded-lg p-5 md:p-6 border border-blue-500/40 shadow-lg mx-auto max-w-2xl transform transition duration-500 hover:shadow-blue-500/20 group animate-[pulseBorder_4s_ease-in-out_infinite]">
             <p className="text-lg md:text-xl text-blue-100 relative z-10" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
-              A 4-week intensive bootcamp limited to <span className="font-bold text-white">30 exceptional students</span>, 
+              A 4-week intensive bootcamp limited to <span className="font-bold text-white">30 Genuinely Interested Students</span>, 
               designed to transform college students into job-ready developers
             </p>
             
