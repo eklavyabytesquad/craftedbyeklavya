@@ -3,9 +3,10 @@
 import { useState, useEffect, memo, useCallback } from 'react';
 import { useAuth } from '../../app/utils/authcontext';
 import supabase from '../../app/utils/supabase';
+import Image from 'next/image';
 
 // Image Modal Component
-const ImageModal = ({ isOpen, onClose, imageData }) => {
+const ImageModal = memo(function ImageModal({ isOpen, onClose, imageData }) {
   if (!isOpen || !imageData) return null;
 
   return (
@@ -24,19 +25,24 @@ const ImageModal = ({ isOpen, onClose, imageData }) => {
           </svg>
         </button>
         <div className="mt-2">
-          <img 
-            src={imageData} 
-            alt="Submission preview" 
-            className="mx-auto max-h-[80vh]" 
-          />
+          {/* Using Image component with proper sizing */}
+          <div style={{ position: 'relative', width: '100%', maxWidth: '800px', height: '80vh', margin: '0 auto' }}>
+            <Image 
+              src={imageData} 
+              alt="Submission preview" 
+              fill
+              style={{ objectFit: 'contain' }}
+              priority
+            />
+          </div>
         </div>
       </div>
     </div>
   );
-};
+});
 
 // Memoized submission card component to reduce re-renders
-const SubmissionCard = memo(({ submission, onDelete, onViewImage }) => {
+const SubmissionCard = memo(function SubmissionCard({ submission, onDelete, onViewImage }) {
   const formatDate = (dateString) => {
     try {
       const date = new Date(dateString);
@@ -133,7 +139,7 @@ const SubmissionCard = memo(({ submission, onDelete, onViewImage }) => {
 });
 
 // Modal component for delete confirmation
-const DeleteModal = ({ isOpen, onClose, onConfirm, isDeleting }) => {
+const DeleteModal = memo(function DeleteModal({ isOpen, onClose, onConfirm, isDeleting }) {
   if (!isOpen) return null;
   
   return (
@@ -198,10 +204,10 @@ const DeleteModal = ({ isOpen, onClose, onConfirm, isDeleting }) => {
       </div>
     </div>
   );
-};
+});
 
 // Main component
-export default function StudentSubmissions() {
+function StudentSubmissions() {
   const { user, loading: authLoading } = useAuth();
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -223,7 +229,7 @@ export default function StudentSubmissions() {
       // Optimize query with RLS to ensure fast data retrieval
       const { data, error } = await supabase
         .from('assignments')
-        .select('id, profile_id, topic, date_submitted, created_at, github_link, pdf_submission')
+        .select('id, profile_id, topic, date_submitted, created_at, github_link, pdf_submission, image_data')
         .eq('profile_id', user.id)
         .order('date_submitted', { ascending: false });
       
@@ -237,23 +243,6 @@ export default function StudentSubmissions() {
       setLoading(false);
     }
   }, [user]);
-
-  // Fetch image data only when needed
-  const fetchImageData = useCallback(async (submissionId) => {
-    try {
-      const { data, error } = await supabase
-        .from('assignments')
-        .select('image_data')
-        .eq('id', submissionId)
-        .single();
-        
-      if (error) throw error;
-      return data?.image_data;
-    } catch (err) {
-      console.error('Error fetching image data:', err);
-      return null;
-    }
-  }, []);
 
   useEffect(() => {
     if (user) {
@@ -271,7 +260,7 @@ export default function StudentSubmissions() {
     setSubmissionToDelete(null);
   }, []);
 
-  const handleViewImage = useCallback(async (imageData) => {
+  const handleViewImage = useCallback((imageData) => {
     setCurrentImage(imageData);
     setImageModalOpen(true);
   }, []);
@@ -324,7 +313,7 @@ export default function StudentSubmissions() {
 
   if (authLoading) {
     return (
-      <div className="bg-white shadow-lg rounded-lg p-6">
+      <div className="bg-blue-50 shadow-lg rounded-lg p-6">
         <div className="flex justify-center items-center py-8">
           <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500"></div>
         </div>
@@ -334,7 +323,7 @@ export default function StudentSubmissions() {
 
   if (!user) {
     return (
-      <div className="bg-white shadow-lg rounded-lg p-6">
+      <div className="bg-blue-50 shadow-lg rounded-lg p-6">
         <div className="mb-4 p-4 rounded-md bg-blue-100 text-blue-800">
           Please log in to view your submissions.
         </div>
@@ -343,10 +332,8 @@ export default function StudentSubmissions() {
   }
 
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="bg-blue-50 shadow-lg rounded-lg overflow-hidden">
       <div className="p-6">
-        <h2 className="text-2xl font-bold text-blue-800 mb-6">My Assignments</h2>
-        
         {message.content && (
           <div className={`mb-4 p-4 rounded-md ${
             message.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
@@ -364,13 +351,13 @@ export default function StudentSubmissions() {
             Error loading submissions: {error}
           </div>
         ) : submissions.length === 0 ? (
-          <div className="text-center py-8 bg-blue-50 rounded-lg">
+          <div className="text-center py-8 bg-white rounded-lg border border-blue-100">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             <h3 className="mt-4 text-lg font-medium text-blue-700">No submissions yet</h3>
             <p className="mt-1 text-blue-500">
-              You haven't submitted any assignments yet.
+              You have not submitted any assignments yet.
             </p>
           </div>
         ) : (
@@ -402,3 +389,5 @@ export default function StudentSubmissions() {
     </div>
   );
 }
+
+export default StudentSubmissions;

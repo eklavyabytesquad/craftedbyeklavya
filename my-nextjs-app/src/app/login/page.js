@@ -32,7 +32,7 @@ export default function LoginPage() {
   useEffect(() => {
     const randomJoke = codingJokes[Math.floor(Math.random() * codingJokes.length)];
     setCodingJoke(randomJoke);
-  }, []);
+  }, [codingJokes]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -130,7 +130,8 @@ export default function LoginPage() {
               <div className="absolute inset-0 bg-blue-500 opacity-30 transform -skew-x-12 z-0"></div>
             </div>
             <div className="text-white text-sm font-mono animate-pulse">
-              // Elite Engineering Bootcamp
+              {/* Elite Engineering Bootcamp */}
+              <span>Elite Engineering Bootcamp</span>
             </div>
           </div>
         </div>

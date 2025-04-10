@@ -1,5 +1,4 @@
 'use client';
-
 import AddAssignment from '../../components/assignment/addassignment';
 import StudentSubmissions from '../../components/assignment/seeassignment';
 import Navbar from '../../components/dashboard/navbar';
