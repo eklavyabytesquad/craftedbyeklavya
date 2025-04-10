@@ -72,28 +72,46 @@ export default function Navbar() {
             {/* Desktop Menu with futuristic animation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-1">
-                {['Home', 'DNS','Super30', 'Contact'].map((item, index) => (
+                {['Home', 'DNS', 'Super30', 'Contact', 'Login'].map((item, index) => (
                   <Link 
                     key={index}
                     href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                    className="relative px-4 py-2 text-sm font-medium overflow-hidden group"
+                    className={`relative px-4 py-2 text-sm font-medium overflow-hidden group ${
+                      item === 'Login' ? 'ml-2 bg-blue-600/30 rounded-md border border-blue-400/30 hover:bg-blue-500/40' : ''
+                    }`}
                     style={{ fontFamily: 'Orbitron, sans-serif' }}
                   >
-                    {/* Cyber bracket decoration */}
-                    <span className="absolute top-0 left-0 w-1.5 h-0 bg-gradient-to-b from-blue-300 to-blue-400 group-hover:h-full transition-all duration-300 opacity-70"></span>
-                    <span className="absolute bottom-0 right-0 w-1.5 h-0 bg-gradient-to-t from-blue-300 to-blue-400 group-hover:h-full transition-all duration-300 delay-75 opacity-70"></span>
+                    {/* Cyber bracket decoration - only for non-login items */}
+                    {item !== 'Login' && (
+                      <>
+                        <span className="absolute top-0 left-0 w-1.5 h-0 bg-gradient-to-b from-blue-300 to-blue-400 group-hover:h-full transition-all duration-300 opacity-70"></span>
+                        <span className="absolute bottom-0 right-0 w-1.5 h-0 bg-gradient-to-t from-blue-300 to-blue-400 group-hover:h-full transition-all duration-300 delay-75 opacity-70"></span>
+                      </>
+                    )}
                     
                     {/* Text with hover effect */}
                     <span className="relative z-10 text-white group-hover:text-blue-100 transition-colors duration-300 tracking-wider">
                       {item}
                     </span>
                     
-                    {/* Animated underline and overline */}
-                    <span className="absolute bottom-0 left-1/2 w-0 h-px bg-white group-hover:w-full group-hover:left-0 transition-all duration-400 ease-in-out"></span>
-                    <span className="absolute top-0 right-1/2 w-0 h-px bg-white group-hover:w-full group-hover:right-0 transition-all duration-400 ease-in-out"></span>
+                    {/* Animated underline and overline - only for non-login items */}
+                    {item !== 'Login' && (
+                      <>
+                        <span className="absolute bottom-0 left-1/2 w-0 h-px bg-white group-hover:w-full group-hover:left-0 transition-all duration-400 ease-in-out"></span>
+                        <span className="absolute top-0 right-1/2 w-0 h-px bg-white group-hover:w-full group-hover:right-0 transition-all duration-400 ease-in-out"></span>
+                      </>
+                    )}
                     
                     {/* Hover glow */}
                     <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-blue-500/5 to-indigo-500/5"></span>
+                    
+                    {/* Special effects for login button */}
+                    {item === 'Login' && (
+                      <>
+                        <span className="absolute inset-0 bg-blue-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md"></span>
+                        <span className="absolute -inset-px bg-gradient-to-r from-blue-400/0 via-blue-400/30 to-blue-400/0 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300 rounded-md"></span>
+                      </>
+                    )}
                   </Link>
                 ))}
               </div>
@@ -155,7 +173,7 @@ export default function Navbar() {
             
             {/* Menu items with futuristic styling */}
             <div className="relative pt-4 pb-5 px-4 space-y-2 z-10">
-              {['Home', 'DNS','Super30', 'Contact'].map((item, index) => (
+              {['Home', 'DNS', 'Super30', 'Contact'].map((item, index) => (
                 <div 
                   key={index}
                   className="transform transition-all duration-500 hover:translate-x-1"
@@ -191,6 +209,39 @@ export default function Navbar() {
                   </Link>
                 </div>
               ))}
+              
+              {/* Special Login Button in Mobile Menu */}
+              <div 
+                className="transform transition-all duration-500 mt-4"
+                style={{ 
+                  transitionDelay: '500ms',
+                  opacity: isOpen ? 1 : 0,
+                  transform: isOpen ? 'translateY(0)' : 'translateY(20px)'
+                }}
+              >
+                <Link 
+                  href="/login"
+                  onClick={toggleMenu}
+                  className="block py-3 px-4 rounded-lg relative group overflow-hidden"
+                >
+                  <div 
+                    className="w-full bg-gradient-to-r from-blue-600/40 to-blue-800/40 border border-blue-400/30 rounded-md p-3 flex items-center justify-center space-x-2"
+                    style={{ fontFamily: 'Orbitron, sans-serif' }}
+                  >
+                    {/* Login icon */}
+                    <span className="h-4 w-4 border-2 border-blue-300 rounded-full flex items-center justify-center relative">
+                      <span className="h-1.5 w-1.5 bg-blue-300 rounded-full"></span>
+                      <span className="absolute h-2 w-1 bg-blue-300 -bottom-1.5 rounded-b-sm"></span>
+                    </span>
+                    
+                    {/* Login text */}
+                    <span className="text-blue-100 font-medium tracking-widest text-sm">LOGIN</span>
+                    
+                    {/* Animated effect */}
+                    <span className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  </div>
+                </Link>
+              </div>
             </div>
             
             {/* Futuristic footer design for mobile menu */}
