@@ -13,9 +13,9 @@ export default function Leadership() {
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/deansir.jpg",
         },
         {
-          name: "Dr. S Prasanna Devi",
+          name: "Dr. Golda Dilip",
           position: "Head of Department CSE",
-          image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/prassanamam.jpg",
+          image: "/assets/dns/golda-dilip.jpg",
         }
       ]
     },
@@ -26,8 +26,14 @@ export default function Leadership() {
           name: "Dr. Sridevi Sridhar",
           position: "Faculty Coordinator",
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/sridevimam.jpg",
+        },
+        {
+          name: "Dr. N. Saraswathi",
+          position: "Faculty Co-Coordinator",
+          image: "/assets/dns/Saraswati2.jpeg",
         }
-      ]
+      ],
+      
     },
     {
       category: "Founding Team",
@@ -39,16 +45,72 @@ export default function Leadership() {
         },
         {
           name: "Aniket Kumar",
-          position: "Vice President",
-          image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/aniket.jpg",
+          position: "Vice President & Technical Head",
+          image: "/assets/dns/Aniket.jpeg",
         },
         {
           name: "Netrang Davey",
-          position: "Founding Member",
+          position: "Joint Technical Head & People's Officers",
           image: "https://pknfpxunrdaidfveqfha.supabase.co/storage/v1/object/public/images/DNS/netrang.jpg",
         }
       ]
-    }
+    },
+    {
+      category: "Board of Directors",
+      members: [
+        {
+          name: "Pawan Kumar",
+          position: "Secretary & Treasurer",
+          image: "/assets/dns/Pawan.jpeg",
+        },
+        {
+          name: "Yuvan Srinivas",
+          position: "Head of PR & Logistics",
+          image: "/assets/dns/Yuvan2.jpeg",
+        },
+        {
+          name: "D. Dilli Babu",
+          position: "Head of content & Social Media",
+          image: "/assets/dns/Dilli.jpeg",
+        }
+      ]
+    },
+    {
+      category: "Junior Board of Directors",
+      members: [
+        {
+          name: "Shravan Chumble",
+          position: "Joint Secretary & PR",
+          image: "/assets/dns/Shravan.jpeg",
+        },
+        {
+          name: "Srijan Mani Tripathi",
+          position: "Joint Treasurer",
+          image: "/assets/dns/male_placeholder.jpg",
+        },
+        {
+          name: "Sneha Kumari",
+          position: "Joint Head of working committee & Outreach",
+          image: "/assets/dns/male_placeholder.jpg",
+        },
+        {
+          name: "Anshika Shukla",
+          position: "Joint Head of Design",
+          image: "/assets/dns/male_placeholder.jpg",
+        },
+        {
+          name: "J Joshua Heniel",
+          position: "Joint Head of Content",
+          image: "/assets/dns/Joshua2.jpeg",
+        },
+        {
+          name: "Athish Kirthik JD",
+          position: "Joint Head of Logistics",
+          image: "/assets/dns/Athish2.jpeg",
+        },
+      ]
+    },
+
   ];
 
   useEffect(() => {
@@ -133,7 +195,7 @@ export default function Leadership() {
                   ))}
                 </div>
                 
-                <div className="flex flex-col items-center justify-center">
+                <div className="flex  items-center justify-evenly flex-wrap">
                   {category.members.map((member, memberIndex) => (
                     <div 
                       key={memberIndex} 
