@@ -96,7 +96,12 @@ export default function Leadership() {
         {
           name: "Anshika Shukla",
           position: "Joint Head of Design",
-          image: "/assets/dns/male_placeholder.jpg",
+          image: "/assets/dns/Anishika.jpeg",
+        },
+        {
+          name: "Arjun",
+          position: "Joint Head of Design",
+          image: "/assets/dns/Arjun2.jpeg",
         },
         {
           name: "J Joshua Heniel",
