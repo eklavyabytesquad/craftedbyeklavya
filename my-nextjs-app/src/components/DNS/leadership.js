@@ -110,6 +110,16 @@ export default function Leadership() {
         },
       ]
     },
+    {
+      category: "Super30 Mentor",
+      members: [
+        {
+          name: "Rohan Sharma",
+          position: "Super30 Mentor & Coordinator",
+          image: "/assets/dns/Rohan.jpeg",
+        },
+      ]
+    },
 
   ];
 
