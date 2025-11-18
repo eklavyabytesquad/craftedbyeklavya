@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Navbar from '../../components/DNS/navbar';
-import Background3D from '../../components/mainpage/3dbackground';
+import SimpleBackground from '../../components/mainpage/simplebackground';
 import DNSHeading from '../../components/DNS/heading';
 import Features from '../../components/DNS/features';
 import JoinUs from '../../components/DNS/joinus';
@@ -25,9 +25,9 @@ export default function DNSPage() {
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-950 via-purple-900 to-black text-white overflow-x-hidden relative">
-      {/* 3D Background Effect */}
+      {/* Simple Background Effect */}
       <div className="opacity-80">
-        <Background3D />
+        <SimpleBackground />
       </div>
       
       {/* Navbar */}

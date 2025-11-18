@@ -3,7 +3,7 @@
 // pages/super30.jsx
 import React from 'react';
 import Navbar from '../../components/super30/navbar';
-import Background3D from '../../components/mainpage/3dbackground';
+import SimpleBackground from '../../components/mainpage/simplebackground';
 import HeaderSection from '../../components/super30/heading';
 import AboutSection from '../../components/super30/aboutsection';
 import CurriculumSection from '../../components/super30/topics';
@@ -16,7 +16,7 @@ import Footer from '../../components/super30/footer';
 export default function Super30Page() {
   return (
     <main className="relative min-h-screen bg-purple-950 text-white overflow-x-hidden">
-      <Background3D />
+      <SimpleBackground />
       <Navbar />
       
       <div className="relative z-10">

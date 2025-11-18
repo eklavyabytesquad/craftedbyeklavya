@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Navbar from '../components/mainpage/navbar';
-import Background3D from '../components/mainpage/3dbackground';
+import SimpleBackground from '../components/mainpage/simplebackground';
 import TechSkillsGlobeSection from '../components/mainpage/globe';
 import VSCodeEditor from '../components/mainpage/vscodeui';
 import HorizontalImageGallery from '../components/mainpage/horizontalimg';
@@ -153,8 +153,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-950 via-purple-900 to-black text-white overflow-x-hidden relative">
-      {/* 3D Background Effect */}
-      <Background3D />
+      {/* Simple Background Effect */}
+      <SimpleBackground />
       
       {/* Navbar */}
       <Navbar />
