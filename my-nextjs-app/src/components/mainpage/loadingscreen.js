@@ -7,11 +7,10 @@ export default function LoadingScreen({ onFinish }) {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    // Total animation duration ~3.2s, then dismiss
     const timer = setTimeout(() => {
       setShow(false);
-      setTimeout(() => onFinish?.(), 600); // wait for exit animation
-    }, 3200);
+      setTimeout(() => onFinish?.(), 900); // wait for slide-up exit
+    }, 3000);
     return () => clearTimeout(timer);
   }, [onFinish]);
 
@@ -19,25 +18,15 @@ export default function LoadingScreen({ onFinish }) {
   const lastName = 'SINGH';
 
   const letterVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(8px)' },
+    hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
     visible: (i) => ({
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        delay: i * 0.08,
-      },
-    }),
-    exit: (i) => ({
-      opacity: 0,
-      y: -20,
-      filter: 'blur(4px)',
-      transition: {
-        duration: 0.4,
-        ease: [0.55, 0.06, 0.68, 0.19],
-        delay: i * 0.03,
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: i * 0.07,
       },
     }),
   };
@@ -48,13 +37,9 @@ export default function LoadingScreen({ onFinish }) {
       scaleX: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        delay: 1.2,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 1.0,
       },
-    },
-    exit: {
-      scaleX: 0,
-      transition: { duration: 0.3, ease: 'easeIn' },
     },
   };
 
@@ -63,11 +48,18 @@ export default function LoadingScreen({ onFinish }) {
       {show && (
         <motion.div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: 'easeInOut' }}
+          initial={{ y: '0%' }}
+          exit={{ y: '-100%' }}
+          transition={{
+            duration: 0.8,
+            ease: [0.76, 0, 0.24, 1],
+          }}
         >
-          <div className="flex flex-col items-center gap-2 select-none">
+          <motion.div
+            className="flex flex-col items-center gap-2 select-none"
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 0.35, ease: 'easeIn' }}
+          >
             {/* First name */}
             <div className="flex overflow-hidden">
               {firstName.split('').map((char, i) => (
@@ -77,7 +69,6 @@ export default function LoadingScreen({ onFinish }) {
                   variants={letterVariants}
                   initial="hidden"
                   animate="visible"
-                  exit="exit"
                   className="text-white font-extralight tracking-[0.35em] text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
                   style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
                 >
@@ -92,7 +83,6 @@ export default function LoadingScreen({ onFinish }) {
               variants={lineVariants}
               initial="hidden"
               animate="visible"
-              exit="exit"
             />
 
             {/* Last name */}
@@ -104,7 +94,6 @@ export default function LoadingScreen({ onFinish }) {
                   variants={letterVariants}
                   initial="hidden"
                   animate="visible"
-                  exit="exit"
                   className="text-white font-extralight tracking-[0.55em] text-xl sm:text-2xl md:text-3xl lg:text-4xl"
                   style={{ fontFamily: 'var(--font-geist-sans), system-ui, sans-serif' }}
                 >
@@ -118,13 +107,12 @@ export default function LoadingScreen({ onFinish }) {
               className="text-white/30 text-[10px] sm:text-xs tracking-[0.5em] uppercase mt-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8, delay: 2.2 }}
+              transition={{ duration: 0.8, delay: 2.0 }}
               style={{ fontFamily: 'var(--font-geist-mono), monospace' }}
             >
               Portfolio
             </motion.p>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
