@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Navbar from '../components/mainpage/navbar';
 import SimpleBackground from '../components/mainpage/simplebackground';
 import LoadingScreen from '../components/mainpage/loadingscreen';
+import CustomCursor from '../components/mainpage/customcursor';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -51,6 +52,7 @@ export default function Home() {
 
   return (
     <>
+      <CustomCursor />
       {loading && <LoadingScreen onFinish={handleLoadingFinish} />}
       <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden relative">
         <SimpleBackground />
