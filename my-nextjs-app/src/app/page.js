@@ -6,13 +6,19 @@ import SimpleBackground from '../components/mainpage/simplebackground';
 import LoadingScreen from '../components/mainpage/loadingscreen';
 import CustomCursor from '../components/mainpage/customcursor';
 
+// Only show loading screen on first ever hard load, not on client navigation
+const hasVisited = typeof window !== 'undefined' && sessionStorage.getItem('visited');
+
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!hasVisited);
   const [typedText, setTypedText] = useState('');
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const handleLoadingFinish = useCallback(() => setLoading(false), []);
+  const handleLoadingFinish = useCallback(() => {
+    setLoading(false);
+    sessionStorage.setItem('visited', '1');
+  }, []);
 
   // Text options for typing effect with varied descriptions
   const textOptions = [
