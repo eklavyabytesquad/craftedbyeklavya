@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 const navItems = ['Home', 'DNS', 'Projects', 'Skills', 'Contact'];
 
-export default function Navbar() {
+export default function Navbar({ darkMode = false }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -30,17 +30,16 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ===== Logo — always visible, vertically aligned with capsule nav ===== */}
+      {/* ===== Logo — always visible ===== */}
       <Link
         href="/"
         onClick={closeMenu}
         data-cursor-text="Home"
-        className="fixed top-0 left-0 z-[60] h-[60px] md:h-[68px] flex items-center pl-5 md:pl-8 group transition-opacity duration-300 hover:opacity-70"
+        className="fixed top-0 left-0 z-[60] h-[60px] md:h-[68px] flex items-center pl-5 md:pl-8 group transition-all duration-500 hover:opacity-70"
       >
         <div className="flex flex-col items-start leading-none">
-          {/* "The" — 007-style narrow condensed look */}
           <span
-            className="text-[7px] md:text-[8px] font-bold tracking-[0.35em] uppercase text-gray-400 ml-[1px]"
+            className={`text-[7px] md:text-[8px] font-bold tracking-[0.35em] uppercase ml-[1px] transition-colors duration-500 ${darkMode ? 'text-gray-400' : 'text-gray-400'}`}
             style={{
               fontFamily: '"Arial Narrow", "Helvetica Neue", Arial, sans-serif',
               fontStretch: 'condensed',
@@ -48,9 +47,8 @@ export default function Navbar() {
           >
             The
           </span>
-          {/* Name — bold serif */}
           <span
-            className="text-[14px] md:text-[16px] font-bold tracking-[0.06em] uppercase text-gray-900 -mt-[1px]"
+            className={`text-[14px] md:text-[16px] font-bold tracking-[0.06em] uppercase -mt-[1px] transition-colors duration-500 ${darkMode ? 'text-[#f5f0e8]' : 'text-gray-900'}`}
             style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
           >
             Eklavya Singh
