@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Eklavya Singh",
+  title: "Eklavya Singh | Portfolio",
   description: "EKLAVYA SINGH - Software Engineer",
   icons: {
     icon: "./favicon.ico",

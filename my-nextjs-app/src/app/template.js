@@ -17,7 +17,6 @@ export default function Template({ children }) {
 
     if (isFirstRender.current) {
       isFirstRender.current = false;
-      gsap.set(el, { opacity: 1 });
       gsap.set(overlay, { scaleX: 0 });
       return;
     }
@@ -26,7 +25,7 @@ export default function Template({ children }) {
     const tl = gsap.timeline();
 
     tl.set(overlay, { transformOrigin: 'left center', scaleX: 0 })
-      .set(el, { opacity: 0 })
+      .set(el, { opacity: 0, visibility: 'hidden' })
       // Curtain sweeps in from left
       .to(overlay, {
         scaleX: 1,
@@ -47,6 +46,7 @@ export default function Template({ children }) {
         el,
         {
           opacity: 1,
+          visibility: 'visible',
           duration: 0.5,
           ease: 'power2.out',
         },
@@ -68,7 +68,7 @@ export default function Template({ children }) {
           pointerEvents: 'none',
         }}
       />
-      <div ref={containerRef} style={{ opacity: 0 }}>
+      <div ref={containerRef}>
         {children}
       </div>
     </>
