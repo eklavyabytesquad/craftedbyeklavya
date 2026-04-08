@@ -75,22 +75,29 @@ export default function Home() {
       
       <main className="relative z-10">
         {/* Hero Section — 100vh */}
-        <section className="relative flex items-end min-h-screen px-4 sm:px-8 md:px-16 pb-0">
-          {/* Left: Text */}
-          <div className="flex-1 flex flex-col justify-center pb-16 sm:pb-24 md:pb-32">
-            <h1 data-cursor-text="Hello!" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-gray-900 mb-4 md:mb-6">
-              Eklavya Singh
+        <section className="relative flex flex-col md:flex-row md:items-end min-h-screen px-6 sm:px-10 md:px-16 lg:px-24 pb-0">
+          {/* Left: Text — centered on mobile, left-aligned & pushed up on desktop */}
+          <div className="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left pt-28 sm:pt-32 md:pt-0 md:pb-44 lg:pb-52">
+            <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-400 mb-3 md:mb-4" style={{ fontFamily: '"Courier New", monospace' }}>
+              Portfolio &mdash; 2026
+            </p>
+            <h1
+              data-cursor-text="Hello!"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[7rem] font-black text-gray-900 mb-3 md:mb-5 leading-[0.95]"
+              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+            >
+              Eklavya<br />Singh
             </h1>
             
-            <div className="h-16 sm:h-20 md:h-24 flex items-center">
-              <h2 data-cursor-text="Role" className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold">
-                <span className="mr-2 sm:mr-4 text-gray-700">I am</span>
+            <div className="h-12 sm:h-16 md:h-20 flex items-center">
+              <h2 data-cursor-text="Role" className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium" style={{ fontFamily: '"Courier New", monospace' }}>
+                <span className="mr-2 sm:mr-3 text-gray-500">I am</span>
                 <span 
                   className="inline-block text-gray-900 font-bold"
                   style={{
-                    borderRight: '3px solid #000',
-                    paddingRight: '8px',
-                    minWidth: '80px'
+                    borderRight: '2px solid #000',
+                    paddingRight: '6px',
+                    fontFamily: 'Georgia, "Times New Roman", serif',
                   }}
                 >
                   {typedText || '|'}
@@ -99,13 +106,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right: Sticker Image — touches the bottom divider */}
-          <div data-cursor-text="That's Me!" className="relative w-48 h-64 sm:w-64 sm:h-80 md:w-80 md:h-[420px] lg:w-[400px] lg:h-[520px] xl:w-[460px] xl:h-[600px] flex-shrink-0 self-end">
+          {/* Right: Sticker Image — large, bottom-aligned to touch the divider */}
+          <div data-cursor-text="That's Me!" className="relative w-60 h-72 sm:w-72 sm:h-96 md:w-[380px] md:h-[500px] lg:w-[480px] lg:h-[620px] xl:w-[540px] xl:h-[700px] flex-shrink-0 self-center md:self-end mx-auto md:mx-0">
             <Image
               src="/assets/eklavya/eklavya-suit-blue-sticker.png"
               alt="Eklavya Singh"
               fill
-              className="object-contain object-bottom drop-shadow-xl"
+              className="object-contain object-bottom drop-shadow-2xl"
               priority
             />
           </div>
